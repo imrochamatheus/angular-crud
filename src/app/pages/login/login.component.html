@@ -1,0 +1,21 @@
+<p>login works!</p>
+
+<form [formGroup]="form" (ngSubmit)="enviar()">
+    <div class="form-group">
+        <label for="id">Id</label>
+        <input type="text" formControlName="id">
+        <small>
+            {{ pegarErroCampo('id', form)}}
+        </small>
+    </div>
+    <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password" formControlName="password">
+        {{ pegarErroCampo('password', form)}}
+    </div>
+
+    <button type="submit" [disabled]="!form.valid">Logar</button>
+</form>
+<p>Não tem conta?
+    <a routerLink="/cadastrar">Cadastre-se</a>
+</p>

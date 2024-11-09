@@ -6,9 +6,19 @@ export enum Perfil {
 }
 
 export interface Usuario {
-  Id?: number;
-  Nome: string;
-  Password: string;
-  Perfil: Perfil;
-  Veiculos: Veiculo[];
+  id?: number;
+  nome: string;
+  password: string;
+  perfil: Perfil;
+  veiculos: Veiculo[];
+}
+
+export namespace UserInterfaces {
+  export namespace Send {
+    export type Create = Pick<Usuario, 'nome' | 'password' | 'perfil'>;
+  }
+
+  export namespace Receive {
+    export type Create = Omit<Usuario, 'password'>;
+  }
 }
